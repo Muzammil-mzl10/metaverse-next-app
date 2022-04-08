@@ -7,7 +7,7 @@ const Login = () => {
 const { authenticate } = useMoralis();
   return (
     <div className="bg-black relative  ">
-      <h1> I'm the Login Screen</h1>
+      <h1> Im the Login Screen</h1>
 
       <div
         className="flex flex-col absolute z-50 
@@ -19,6 +19,7 @@ const { authenticate } = useMoralis();
           className="rounded-full object-cover "
           height={200}
           width={200}
+          alt='ok'
         />
         <button onClick={authenticate} className="bg-yellow-500 rounded-lg p-5 font-bold animate-pulse">
           Login to the METAVERSE
@@ -30,6 +31,7 @@ const { authenticate } = useMoralis();
           src="https://links.papareact.com/55n"
           layout="fill"
           objectFit="cover"
+          alt="ok"
         />
         {/* Login Form */}
       </div>
