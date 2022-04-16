@@ -1,4 +1,4 @@
-import { Head } from "next/document";
+
 import react from "react";
 import Image from "next/image";
 import { useMoralis } from "react-moralis";
