@@ -11,6 +11,7 @@ const Avatar = ({ username, logoutOnPess }) => {
         username || user.get("username")
       }.svg`}
       layout="fill"
+      alt="ok"
       onClick={() => logoutOnPess && logout()}
     />
   );
