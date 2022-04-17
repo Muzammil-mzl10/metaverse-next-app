@@ -22,7 +22,7 @@ const Message = () => {
       live: true,
     }
   );
-  console.log(data);
+  // console.log(data);
   return (
     <div className="pb-56">
       <div className="my-5">

@@ -9,6 +9,7 @@ const SendMessage = ({endofMessagesRef}) => {
   const Send = (e) => {
     e.preventDefault();
 
+
     if (!message) return;
 
     const Message1 = Moralis.Object.extend("Messages");
@@ -28,6 +29,15 @@ const SendMessage = ({endofMessagesRef}) => {
       };
       endofMessagesRef.current.scrollIntoView({behavior:'smooth'})
       setMessage("")
+
+      const isUserName = messages.get("etAddress") === user.get("ethAddress");
+      if(!isUserName){
+        const audioE1 = document.getElementsByClassName("audio-element")[0]
+        audioE1.play()
+
+        console.log('Auido file played successfully')
+      }
+
   };
 
 
@@ -49,8 +59,14 @@ const SendMessage = ({endofMessagesRef}) => {
           Send
         </button>
       </form>
+      <audio  hidden className="audio-element">
+        <source src='/public_tin.mp3'></source>
+        </audio>
     </>
   );
 };
+
+
+
 
 export default SendMessage;
