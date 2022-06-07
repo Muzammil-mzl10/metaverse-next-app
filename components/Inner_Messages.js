@@ -63,7 +63,7 @@ const Inner_Messages = ({ message }) => {
         {message.get("username")}
       </p>
     </div>
-    { isUserName ?    <audio hidden autoplay className="audio-element">
+    { isUserName ?    <audio hidden autoPlay className="audio-element">
         <source src="/public_tin.mp3"></source>
       </audio> : `ok` }
     
