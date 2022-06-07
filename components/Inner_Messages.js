@@ -1,45 +1,34 @@
-import react  ,{useState} from "react";
+import react, { useState } from "react";
 
 import { useMoralis } from "react-moralis";
 import Avatar from "./Avatar";
 
-import TimeAgo from 'react-time-ago'
 
 
 const Inner_Messages = ({ message }) => {
   const { user } = useMoralis();
   const isUserName = message.get("etAddress") === user.get("ethAddress");
-  
-  // createdAt: Sun Apr 17 2022 12:05:57 GMT+0500 
-  let aa = message.createdAt
-  // console.log(aa)
-  // aa = JSON.stringify(aa)
-  aa = aa.toString()
-  console.log(typeof(aa))
-  // let temp
-  // let date =[]
+  // if (!isUserName) {
+  //   const audioE1 = document.getElementsByClassName("audio-element")[0];
+  //   audioE1.play();
 
-  // for(let i=0 ; i<aa.length ; i++){
-  //   temp = null
-  //   temp = aa[i].split('2022')[1].split('GMT')[0]
-  //   date[i]=temp
-  //   console.log(date)[i]
+  //   console.log("Auido file played successfully");
   // }
 
-  console.log(aa)
-aa = aa.split('2022')[1]
-aa = aa.split('GMT')[0].trim()
-// aa = aa.split('.')[0]
-console.log(aa)
-
-  
-  
+  // createdAt: Sun Apr 17 2022 12:05:57 GMT+0500
+  let aa = message.createdAt;
+  // console.log(aa)
+  // aa = JSON.stringify(aa)
+  aa = aa.toString();
+  console.log(typeof aa);
   
 
-  
-  return (
-    
+  console.log(aa);
+  aa = aa.split("2022")[1];
+  aa = aa.split("GMT")[0].trim();
+  console.log(aa);
 
+  return ( <>
     <div
       className={`flex items-end space-x-2 relative ${
         isUserName && "justify-end"
@@ -58,16 +47,13 @@ console.log(aa)
         <p>{message.get("message")}</p>
       </div>
 
-        <span 
-            className={`text-[10px] italic text-gray-400 ${
-                isUserName && "order-first pr-1"
-            }`}
-            
-            
-        >{aa}</span>
-
-
-
+      <span
+        className={`text-[10px] italic text-gray-400 ${
+          isUserName && "order-first pr-1"
+        }`}
+      >
+        {aa}
+      </span>
 
       <p
         className={`absolute -bottom-5 text-xs ${
@@ -77,6 +63,11 @@ console.log(aa)
         {message.get("username")}
       </p>
     </div>
+    { isUserName ?    <audio hidden autoplay className="audio-element">
+        <source src="/public_tin.mp3"></source>
+      </audio> : `ok` }
+    
+     </>
   );
 };
 

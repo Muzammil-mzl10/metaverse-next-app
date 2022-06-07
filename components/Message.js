@@ -45,11 +45,12 @@ const Message = () => {
       <div className="flex justify-center">
         <SendMessage endofMessagesRef={endofMessagesRef} />
       </div>
+      
 
       <div ref={endofMessagesRef} className="text-center text-gray-400 mt-5">
         <p>You are upto date {user.getUsername()} !</p>
       </div>
-
+            
     </div>
   );
 };

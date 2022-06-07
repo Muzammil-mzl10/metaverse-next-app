@@ -31,11 +31,11 @@ const SendMessage = ({endofMessagesRef}) => {
       setMessage("")
 
       const isUserName = messages.get("etAddress") === user.get("ethAddress");
-      if(!isUserName){
-        const audioE1 = document.getElementsByClassName("audio-element")[0]
-        audioE1.play()
-
-        console.log('Auido file played successfully')
+      if (isUserName) {
+        const audioE1 = document.getElementsByClassName("audio-element")[0];
+        audioE1.play();
+    
+        console.log("Auido file played successfully");
       }
 
   };
@@ -43,6 +43,9 @@ const SendMessage = ({endofMessagesRef}) => {
 
   return (
     <>
+        <audio hidden className="audio-element">
+        <source src="/public_tin.mp3"></source>
+      </audio>
       <form onSubmit={e=>e.preventDefault()} className="flex  fixed bottom-10 bg-black opacity-80 w-11/12 px-6 py-4 max-w-2xl shadow-xl rounded-full border-4 border-blue-400">
         <input
           type="text"
@@ -59,9 +62,7 @@ const SendMessage = ({endofMessagesRef}) => {
           Send
         </button>
       </form>
-      <audio  hidden className="audio-element">
-        <source src='/public_tin.mp3'></source>
-        </audio>
+     
     </>
   );
 };
